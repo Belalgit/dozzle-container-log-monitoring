@@ -103,7 +103,7 @@ sudo docker-compose up -d --build
 Check:
 
 ```
-http://<server-ip>:3456
+http://<server-ip>:8080
 ```
 
 ---
@@ -247,14 +247,3 @@ This project is for internal deployment within JatriTech.
 Not intended for public redistribution.
 
 ---
-
-## **🙌 Maintainer**
-
-**Cloud Security & DevOps — JatriTech**
-
-If you want, I can also create:
-✔ diagram PNG
-✔ folder structure for GitHub repo
-✔ bash automation script for full installation
-
-Just tell me!
