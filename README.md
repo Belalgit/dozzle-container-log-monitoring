@@ -5,7 +5,7 @@ It enables a central Dozzle UI server to read logs from multiple remote Docker h
 
 ---
 
-## **🔰 Production URL**
+## **🔰 Development URL**
 
 **[https://dozzle.example.com](https://dozzle.example.com)**
 
@@ -67,7 +67,7 @@ sudo systemctl enable docker
 ## **📁 Project Directory Structure**
 
 ```
-/var/www/dozzle.jatritech.com/
+/var/www/dozzle.example.com/
 │── docker-compose.yml
 │── hosts.env
 ```
@@ -79,7 +79,7 @@ sudo systemctl enable docker
 Example for multiple Docker servers:
 
 ```
-DOZZLE_REMOTE_HOST=tcp://172.20.4.4:2375|JATRI-PROD-Docker-FE-SRV,tcp://172.20.1.27:2375|JATRI-PROD-ReportPanel-SRV
+DOZZLE_REMOTE_HOST=tcp://10.10.1.220:2375|Server-B,tcp://10.10.1.221:2375|Server-C
 ```
 
 Single host:
@@ -102,11 +102,11 @@ services:
     image: amir20/dozzle:latest
     container_name: dozzle-ui
     ports:
-      - "3456:8080"
+      - "8080:8080"
     env_file:
       - ./hosts.env
     environment:
-      DOZZLE_HOSTNAME: "JATRI-PROD-Dozzle-SRV"
+      DOZZLE_HOSTNAME: "dozzle-server"
       DOZZLE_FILTER: "status=running"
       DOZZLE_LEVEL: "info"
     volumes:
@@ -130,17 +130,17 @@ http://<server-ip>:3456
 
 ## **🌐 Nginx Reverse Proxy Configuration**
 
-Location: `/etc/nginx/sites-available/dozzle.jatritech.com`
+Location: `/etc/nginx/sites-available/dozzle.example.com`
 
 ```nginx
 server {
-    server_name dozzle.jatritech.com;
+    server_name dozzle.example.com;
 
     auth_basic "Restricted Zone";
     auth_basic_user_file /etc/nginx/.dozzle_htpasswd;
 
     location / {
-        proxy_pass http://127.0.0.1:3456/;
+        proxy_pass http://127.0.0.1:8080/;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-Proto $scheme;
@@ -166,7 +166,7 @@ sudo systemctl restart nginx
 ## **🔐 SSL Setup (Let’s Encrypt)**
 
 ```bash
-sudo certbot --nginx -d dozzle.jatritech.com
+sudo certbot --nginx -d dozzle.example.com
 sudo certbot certificates
 sudo systemctl restart nginx
 ```
@@ -243,7 +243,7 @@ TCP 2375 → only from Dozzle UI server (Server A)
 
 ## **📈 Final Verification**
 
-* Browse: **[https://dozzle.jatritech.com/](https://dozzle.jatritech.com/)**
+* Browse: **[https://dozzle.example.com/](https://dozzle.example.com/)**
 * Authenticate using Basic Auth
 * Logs from multiple servers should appear
 
@@ -256,7 +256,7 @@ README.md
 dozzle-ui/docker-compose.yml
 dozzle-ui/hosts.env
 dozzle-agent/docker-compose.yml
-nginx-config/dozzle.jatritech.com
+nginx-config/dozzle.example.com
 ```
 
 ---
