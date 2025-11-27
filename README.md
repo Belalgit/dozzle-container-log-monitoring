@@ -1,6 +1,6 @@
-# **Dozzle Centralized Log Viewer – Production Deployment Guide**
+# **Dozzle Centralized Log Viewer – Development Deployment Guide**
 
-This project provides a **secure Production-ready deployment** of **Dozzle**, a lightweight real-time log viewer for Docker.
+This project provides a **secure development-ready deployment** of **Dozzle**, a lightweight real-time log viewer for Docker.
 It enables a central Dozzle UI server to read logs from multiple remote Docker hosts using a **docker-socket-proxy**, protected behind **Nginx + SSL + Basic Auth**.
 
 ---
