@@ -176,7 +176,7 @@ sudo htpasswd -D /etc/nginx/.dozzle_htpasswd devops1
 
 ---
 
-# **📌 Step 3 — Server B Setup (docker-socket-proxy)**
+# **📌 Step 3 — Server B / Application Server Setup (docker-socket-proxy)**
 
 Directory:
 
