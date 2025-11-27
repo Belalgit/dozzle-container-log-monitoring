@@ -1,1 +1,19 @@
 
+version: "3.8"
+
+services:
+  docker-agent:
+    image: tecnativa/docker-socket-proxy
+    container_name: dozzle-agent
+    privileged: true
+    environment:
+      CONTAINERS: 1
+      INFO: 1
+      IMAGES: 1
+      VERSION: 1
+      EVENTS: 1
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "2375:2375"
+    restart: unless-stopped
