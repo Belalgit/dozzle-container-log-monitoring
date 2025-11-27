@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  dozzle:
+    image: amir20/dozzle:latest
+    container_name: dozzle-ui
+    ports:
+      - "8080:8080"
+    env_file:
+      - ./hosts.env
+    environment:
+      DOZZLE_HOSTNAME: "dozzle-server"
+      DOZZLE_FILTER: "status=running"
+      DOZZLE_LEVEL: "info"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
