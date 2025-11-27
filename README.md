@@ -1,8 +1,3 @@
-Below is a clean, professional **README.md** you can directly publish to GitHub for your Dozzle Deployment Project.
-It includes architecture overview, setup instructions, Docker Compose usage, NGINX config, SSL, basic auth, and agent configuration.
-
----
-
 # **Dozzle Centralized Log Viewer – Production Deployment Guide**
 
 This project provides a **secure Production-ready deployment** of **Dozzle**, a lightweight real-time log viewer for Docker.
@@ -12,7 +7,7 @@ It enables a central Dozzle UI server to read logs from multiple remote Docker h
 
 ## **🔰 Production URL**
 
-**[https://dozzle.jatritech.com](https://dozzle.jatritech.com)**
+**[https://dozzle.example.com](https://dozzle.example.com)**
 
 ---
 
@@ -21,11 +16,11 @@ It enables a central Dozzle UI server to read logs from multiple remote Docker h
 ```
                            Internet (SSL + Browser)
                                       │
-                            https://dozzle.jatritech.com
+                            https://dozzle.example.com
                                       │
                              NGINX + Basic Auth (Server A)
                                       │
-                              Dozzle UI (Docker, 3456)
+                              Dozzle UI (Docker, 8080)
                                       │
                        DOZZLE_REMOTE_HOST (Multiple Hosts)
                                       │
