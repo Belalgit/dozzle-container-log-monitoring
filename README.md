@@ -92,7 +92,7 @@ DOZZLE_REMOTE_HOST=tcp://10.10.1.220:2375|Server-Test-Docker
 
 ## **📦 Docker Compose – Dozzle UI**
 
-Download the repo **docker-compose.yml**
+Download the repo > dozzle-server > **docker-compose.yml**
 
 Run:
 
@@ -176,7 +176,7 @@ sudo htpasswd -D /etc/nginx/.dozzle_htpasswd devops1
 
 ---
 
-# **📌 Step 3 — Server B / Application Server Setup (docker-socket-proxy)**
+# **📌 Step 2 — Server B / Application Server Setup (docker-socket-proxy)**
 
 Directory:
 
@@ -184,7 +184,7 @@ Directory:
 /var/www/dozzle-agent/
 ```
 
-### **docker-compose.yml**
+Download the repo > dozzle-server > **docker-compose.yml**
 
 ```yaml
 version: "3.8"
