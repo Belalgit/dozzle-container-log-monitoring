@@ -31,8 +31,8 @@ It enables a central Dozzle UI server to read logs from multiple remote Docker h
 
 ### **Server Roles**
 
-* **Server A** → Dozzle UI + Nginx + Basic Auth
-* **Server B** → docker-socket-proxy (exposes docker API read-only for logs)
+* **Server A / Dozzle Server** → Dozzle UI + Nginx + Basic Auth
+* **Server B / Application Server** → docker-socket-proxy (exposes docker API read-only for logs)
 
 ---
 
