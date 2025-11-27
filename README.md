@@ -92,27 +92,7 @@ DOZZLE_REMOTE_HOST=tcp://10.10.1.220:2375|Server-Test-Docker
 
 ## **📦 Docker Compose – Dozzle UI**
 
-**docker-compose.yml**
-
-```yaml
-version: "3.8"
-
-services:
-  dozzle:
-    image: amir20/dozzle:latest
-    container_name: dozzle-ui
-    ports:
-      - "8080:8080"
-    env_file:
-      - ./hosts.env
-    environment:
-      DOZZLE_HOSTNAME: "dozzle-server"
-      DOZZLE_FILTER: "status=running"
-      DOZZLE_LEVEL: "info"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    restart: unless-stopped
-```
+Download the repo **docker-compose.yml**
 
 Run:
 
