@@ -184,28 +184,7 @@ Directory:
 /var/www/dozzle-agent/
 ```
 
-Download the repo > dozzle-server > **docker-compose.yml**
-
-```yaml
-version: "3.8"
-
-services:
-  docker-agent:
-    image: tecnativa/docker-socket-proxy
-    container_name: dozzle-agent
-    privileged: true
-    environment:
-      CONTAINERS: 1
-      INFO: 1
-      IMAGES: 1
-      VERSION: 1
-      EVENTS: 1
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    ports:
-      - "2375:2375"
-    restart: unless-stopped
-```
+Download the repo > application-server > **docker-compose.yml**
 
 Deploy:
 
@@ -226,24 +205,5 @@ TCP 2375 → only from Dozzle UI server (Server A)
 * Browse: **[https://dozzle.example.com/](https://dozzle.example.com/)**
 * Authenticate using Basic Auth
 * Logs from multiple servers should appear
-
----
-
-## **📁 Repository Contents**
-
-```
-README.md
-dozzle-ui/docker-compose.yml
-dozzle-ui/hosts.env
-dozzle-agent/docker-compose.yml
-nginx-config/dozzle.example.com
-```
-
----
-
-## **📝 License**
-
-This project is for internal deployment within JatriTech.
-Not intended for public redistribution.
 
 ---
